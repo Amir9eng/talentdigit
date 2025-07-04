@@ -1,0 +1,178 @@
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: #fff;
+  padding: 28px 0 18px 0;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-link {
+  font-size: 1.15rem;
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 18px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #222;
+  color: #fff;
+}
+
+.services-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 48px 0 48px;
+  font-size: 1.1rem;
+  background: #111;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background: #19d219;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.services-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0 0 0;
+}
+
+.services-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 48px;
+  margin-left: 32px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  margin-bottom: 60px;
+}
+
+.service-card {
+  background: #181818;
+  border: 2px solid #444;
+  border-radius: 18px;
+  padding: 32px 32px 28px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
+.service-content h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.service-content p {
+  font-size: 1.05rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.download-cv-btn {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 14px 38px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-bottom: 32px;
+  margin-top: 8px;
+  transition: background 0.2s;
+  margin-left: 32px;
+}
+
+.download-cv-btn:hover {
+  background: #0056b3;
+}
+
+.arrow {
+  font-size: 1.3rem;
+  margin-left: 8px;
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-title {
+    margin-left: 0;
+    text-align: center;
+  }
+  .download-cv-btn {
+    margin-left: 0;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
