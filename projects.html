@@ -189,5 +189,248 @@
         <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a>
       </div>
     </footer>
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="project-modal">
+      <div class="project-modal-content">
+        <button class="project-modal-close" id="closeModal">&times;</button>
+
+        <div class="project-modal-header">
+          <div class="project-header-left">
+            <div class="project-badge">Python Project</div>
+            <div class="project-tech-logo">
+              <img
+                src="https://img.icons8.com/color/48/000000/python.png"
+                alt="Python"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="project-modal-body">
+          <div class="project-content-left">
+            <h2 class="project-modal-title">Earthquake Data Analysis</h2>
+            <div class="project-modal-domain">
+              <span class="domain-label">Domain/Function:</span>
+              <span class="domain-value"
+                >Environmental Data Science | Geospatial Analytics</span
+              >
+            </div>
+
+            <p class="project-description">
+              Analyzed global earthquake data using Python to uncover patterns
+              in magnitude, frequency, and location. Applied data visualization
+              and statistical techniques to support risk assessment and
+              geospatial insights for disaster preparedness.
+            </p>
+
+            <div class="project-action-buttons">
+              <button class="project-btn linkedin-btn">
+                <img
+                  src="https://img.icons8.com/ios-filled/20/ffffff/linkedin.png"
+                  alt="LinkedIn"
+                />
+                View Project Engagement
+              </button>
+              <button class="project-btn jupyter-btn">
+                <img
+                  src="https://img.icons8.com/color/20/000000/jupyter.png"
+                  alt="Jupyter"
+                />
+                View Project on Jupyter Notebook
+              </button>
+            </div>
+
+            <div class="other-tools-section">
+              <h3 class="other-tools-title">Other Tools</h3>
+              <div class="tools-tags">
+                <span class="tool-tag">Pandas</span>
+                <span class="tool-tag">Numpy</span>
+                <span class="tool-tag">Matplotlib</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-content-right">
+            <div class="project-visualization">
+              <div class="code-snippet">
+                <div class="code-header">
+                  <span class="code-line-number">In [14]:</span>
+                  <span class="code-type">#Histogram</span>
+                </div>
+                <div class="code-content">
+                  plt.hist(data['Depth'], color='skyblue', alpha='mid',
+                  bins=60)<br />
+                  plt.xlabel('Number of occurrences')<br />
+                  plt.title('Depth')<br />
+                  plt.show()
+                </div>
+              </div>
+              <div class="chart-container">
+                <img
+                  src="images/project-2.png"
+                  alt="Earthquake Data Visualization"
+                  class="chart-image"
+                />
+              </div>
+              <p class="chart-insight">
+                Reveals a deep insight into data distribution, highlighting
+                underlying patterns and significant trends often overlooked at
+                first glance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-details-section">
+          <h3 class="project-details-title">Project Details</h3>
+          <p class="project-details-text">
+            In this project, I explored global earthquake data to uncover
+            patterns in seismic activity using Python libraries such as Pandas,
+            Matplotlib, and Seaborn. I analyzed trends in magnitude, depth, and
+            frequency over time, and visualized earthquake distributions across
+            geographic regions. By examining correlations between depth and
+            magnitude, I derived insights that can support disaster preparedness
+            and risk assessment. This project not only strengthened my skills in
+            data cleaning, visualization, and exploratory data analysis but also
+            deepened my understanding of how data science can be applied to
+            real-world environmental challenges. It reflects my commitment to
+            using data as a tool for driving meaningful, human-centered impact.
+          </p>
+        </div>
+
+        <div class="navigation-arrows">
+          <button class="nav-arrow nav-arrow-left">&#8249;</button>
+          <button class="nav-arrow nav-arrow-right">&#8250;</button>
+        </div>
+      </div>
+    </div>
   </body>
+  <script>
+    const modal = document.getElementById('projectModal');
+    const closeBtn = document.getElementById('closeModal');
+    const seeWorkBtns = document.querySelectorAll('.see-work-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Sample project data
+    const projectsData = {
+      'EV Vehicle Analysis': {
+        badge: 'Python Project',
+        techLogo: 'https://img.icons8.com/color/48/000000/python.png',
+        title: 'EV Vehicle Analysis',
+        domain: 'Environmental Data Science | Geospatial Analytics',
+        description:
+          'Analyzed global EV adoption data using Python to uncover patterns in sales, infrastructure, and geographic distribution. Applied data visualization techniques to support market analysis and policy recommendations.',
+        tools: ['Pandas', 'Numpy', 'Matplotlib'],
+        chartImage: 'images/ev-chart.png',
+      },
+      'Career Aspirations project - Analysis': {
+        badge: 'SQL Project',
+        techLogo: 'https://img.icons8.com/color/48/000000/sql.png',
+        title: 'Career Aspirations Analysis',
+        domain: 'Career Aspirations & Influences',
+        description:
+          'Conducted comprehensive analysis of career aspiration data using SQL to identify trends and patterns in professional preferences, educational backgrounds, and industry influences.',
+        tools: ['SQL', 'PostgreSQL', 'Tableau'],
+        chartImage: 'images/career-chart.png',
+      },
+      'Ecommerce Sales Analysis': {
+        badge: 'Excel Project',
+        techLogo: 'https://img.icons8.com/color/48/000000/ms-excel.png',
+        title: 'Ecommerce Sales Analysis',
+        domain: 'Sales Analysis',
+        description:
+          'Performed detailed sales analysis using Excel to identify revenue trends, customer segments, and product performance metrics for strategic business decision-making.',
+        tools: ['Excel', 'Power Query', 'Pivot Tables'],
+        chartImage: 'images/sales-chart.png',
+      },
+    };
+
+    // Function to open modal with project data
+    function openModal(projectTitle) {
+      const project = projectsData[projectTitle];
+      if (project) {
+        // Update modal content
+        document.querySelector('.project-badge').textContent = project.badge;
+        document.querySelector('.project-tech-logo img').src = project.techLogo;
+        document.querySelector('.project-modal-title').textContent =
+          project.title;
+        document.querySelector('.domain-value').textContent = project.domain;
+        document.querySelector('.project-description').textContent =
+          project.description;
+
+        // Update tools
+        const toolsContainer = document.querySelector('.tools-tags');
+        toolsContainer.innerHTML = '';
+        project.tools.forEach((tool) => {
+          const toolTag = document.createElement('span');
+          toolTag.className = 'tool-tag';
+          toolTag.textContent = tool;
+          toolsContainer.appendChild(toolTag);
+        });
+
+        // Update chart image
+        document.querySelector('.chart-image').src = project.chartImage;
+      }
+
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Function to close modal
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Event listeners for "See My Work" buttons
+    seeWorkBtns.forEach((btn, index) => {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const projectCard = btn.closest('.project-card');
+        const projectTitle =
+          projectCard.querySelector('.project-title').textContent;
+        openModal(projectTitle);
+      });
+    });
+
+    // Event listeners for project cards
+    projectCards.forEach((card) => {
+      card.addEventListener('click', function () {
+        const projectTitle = card.querySelector('.project-title').textContent;
+        openModal(projectTitle);
+      });
+    });
+
+    // Close modal events
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+
+    // Navigation arrows (you can implement project switching here)
+    document
+      .querySelector('.nav-arrow-left')
+      .addEventListener('click', function () {
+        // Implement previous project logic
+        console.log('Previous project');
+      });
+
+    document
+      .querySelector('.nav-arrow-right')
+      .addEventListener('click', function () {
+        // Implement next project logic
+        console.log('Next project');
+      });
+  </script>
 </html>
